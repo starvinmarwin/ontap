@@ -6,9 +6,9 @@
     - netapp.ontap
   gather_facts: false
   name: Loop of LUN creation
-  tasks:     
+  tasks:  
   - name: Add initiators to an igroup
-  na_ontap_igroup_initiator:
+    na_ontap_igroup_initiator:
     names: abc.test:def.com,def.test:efg.com
     initiator_group: test_group
     vserver: st024vs
