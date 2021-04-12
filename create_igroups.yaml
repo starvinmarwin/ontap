@@ -1,19 +1,11 @@
----
-- hosts: localhost
-  environment:
-   no_proxy: 10.87.170.10
-  collections:
-    - netapp.ontap
-  gather_facts: false
-  name: Loop of LUN creation
-  tasks:  
-  - name: Add initiators to an igroup
-    na_ontap_igroup_initiator:
-      names: 20:FA:00:25:B5:0A:00:00,20:FA:00:25:B5:0B:00:00
-      initiator_group: na777vmw001
-      vserver: st024vs
-      hostname: "{{ hostname }}"
-      username: "{{ netapp_username }}"
-      password: "{{ netapp_password }}"
-      https: true
-      validate_certs: false
+- name: Create FC Igroup
+  na_ontap_igroup:
+    state: present
+    name: ansibleIgroup4
+    initiator_group_type: fcp
+    os_type: linux
+    initiators: 20:00:00:50:56:9f:19:82
+    vserver: ansibleVServer
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
