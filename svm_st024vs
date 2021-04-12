@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  environment:
+   no_proxy: 10.87.170.10
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  vars:
+    login: &login
+      hostname: " {{ hostname }} "
+      username: " {{ netapp_username }} "
+      password: " {{ netapp_password }} "
+      https: true
+      validate_certs: false
+  name: Onboard SVM
+  tasks:
+  - name: Create SVM
+    na_ontap_svm:
+      state: present
+      name: "{{ vserver }}"
+      root_volume: "{{ vserver}}_root"
+      root_volume_aggregate: nolorna14st_01_nvm15t_01
+      root_volume_security_style: unix
+      <<: *login
