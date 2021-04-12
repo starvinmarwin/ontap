@@ -7,9 +7,9 @@
   gather_facts: false
   vars:
     login: &login
-      hostname: " {{ hostname }} "
-      username: " {{ netapp_username }} "
-      password: " {{ netapp_password }} "
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
       https: true
       validate_certs: false
   name: Onboard SVM
