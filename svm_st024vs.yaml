@@ -8,8 +8,8 @@
   vars:
     login: &login
       hostname: "10.87.170.10"
-      username: " {{ netapp_username }} "
-      password: " {{ netapp_password }} "
+      username: "awx"
+      password: "mFRg4,tnu1in"
       https: true
       validate_certs: false
   name: Onboard SVM
