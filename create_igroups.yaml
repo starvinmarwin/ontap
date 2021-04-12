@@ -19,5 +19,5 @@
       password: "{{ netapp_password }}"
       https: true
       validate_certs: false
-    loop:
+      loop:
       - { name: 'na777vmw001', initiators: '20:FA:00:25:B5:0A:00:00,20:FA:00:25:B5:0B:00:00' }
