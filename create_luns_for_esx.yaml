@@ -7,8 +7,8 @@
   gather_facts: false
   name: Loop of LUN creation
   tasks:
-   - name: Create LUN
-     na_ontap_lun:
+  - name: Create LUN
+    na_ontap_lun:
       state: present
       name: "{{ item.lun_name }}"
       size: "{{ item.lun_size }}"
