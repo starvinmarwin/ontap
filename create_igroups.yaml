@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  environment:
+   no_proxy: 10.87.170.10
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  name: Loop of LUN creation
+  tasks:
+  - name: Add initiators to an igroup
+    na_ontap_igroup_initiator:
+      names: "{{ names.item }}"
+      initiator_group: "{{ group.item }}" 
+      vserver: "{{ item.vserver }}"
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
+    loop:
+      - { names: 'bla,bla', initiator_group: 'test1', vserver: 'st024vs' }
