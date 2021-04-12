@@ -7,9 +7,9 @@
   gather_facts: false
   vars:
     login: &login
-      hostname: " {{ hostname }} "
-      username: " {{ netapp_username }} "
-      password: " {{ netapp_password }} "
+      hostname: "10.87.170.10"
+      username: "awx"
+      password: "mFRg4,tnu1in"
       https: true
       validate_certs: false
   name: Onboard SVM
@@ -17,8 +17,10 @@
   - name: Create SVM
     na_ontap_svm:
       state: present
-      name: "{{ vserver }}"
-      root_volume: "{{ vserver}}_root"
+      name: "st024vs"
+      root_volume: "st024vs_root"
       root_volume_aggregate: nolorna14st_01_nvm15t_01
       root_volume_security_style: unix
+      comment: "NIMBUS PRI: Nimbus NO LOR ESX-boot"
+      allowed_protocols: "fcp"
       <<: *login
