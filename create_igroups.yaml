@@ -18,4 +18,4 @@
       https: true
       validate_certs: false
     loop:
-      - { names: 'bla,bla', initiator_group: 'test1', vserver: 'st024vs' }
+      - { names: 'bla', initiator_group: 'test1', vserver: 'st024vs' }
