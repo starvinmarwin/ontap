@@ -9,15 +9,15 @@
   tasks:
   - name: Create FC Igroup
     na_ontap_igroup:
-    state: present
-    name: "{{ name.item }}"
-    initiator_group_type: fcp
-    os_type: linux
-    initiators: "{{ initiators.item }}"
-    hostname: "{{ hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
-    https: true
-    validate_certs: false
+      state: present
+      name: "{{ name.item }}"
+      initiator_group_type: fcp
+      os_type: linux
+      initiators: "{{ initiators.item }}"
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
     loop:
       - { name: 'na777vmw001', initiators: '20:FA:00:25:B5:0A:00:00,20:FA:00:25:B5:0B:00:00' }
