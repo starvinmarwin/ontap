@@ -7,7 +7,7 @@
   gather_facts: false
   vars:
     login: &login
-      hostname: "10.87.170.10"
+      hostname: " {{ hostname }} "
       username: " {{ netapp_username }} "
       password: " {{ netapp_password }} "
       https: true
