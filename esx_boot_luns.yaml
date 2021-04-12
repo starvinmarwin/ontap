@@ -23,7 +23,7 @@
       validate_certs: false
   - name: Create LUN
     na_ontap_lun:
-      state: "{{ state }}"
+      state: present
       vserver: "{{ vserver }}"
       name: "{{ volname }}_01"
       flexvol_name: "{{ volname }}"
