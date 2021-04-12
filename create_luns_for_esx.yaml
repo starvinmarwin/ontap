@@ -21,4 +21,4 @@
       https: true
       validate_certs: false
     loop:
-      - { lun_name: 'volume1', lun_size: '16', volume_size_unit: 'gb', vserver: 'vserver_name', flexvol_name: '' }
+      - { lun_name: 'na777vmw001', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
