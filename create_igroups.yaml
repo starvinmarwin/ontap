@@ -9,8 +9,8 @@
   tasks:  
   - name: Add initiators to an igroup
     na_ontap_igroup_initiator:
-      names: abc.test:def.com,def.test:efg.com
-      initiator_group: test_group
+      names: 20:FA:00:25:B5:0A:00:00,20:FA:00:25:B5:0B:00:00
+      initiator_group: na777vmw001
       vserver: st024vs
       hostname: "{{ hostname }}"
       username: "{{ netapp_username }}"
