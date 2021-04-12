@@ -22,3 +22,18 @@
       validate_certs: false
     loop:
       - { lun_name: 'na777vmw001', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw002', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw003', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw004', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw005', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw006', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw007', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw008', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw009', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw010', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw011', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw012', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw013', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw014', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw015', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw016', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
