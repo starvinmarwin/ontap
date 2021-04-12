@@ -15,5 +15,5 @@
     hostname: "{{ hostname }}"
     username: "{{ netapp_username }}"
     password: "{{ netapp_password }}"
-      https: true
-      validate_certs: false
+    https: true
+    validate_certs: false
