@@ -9,11 +9,11 @@
   tasks:  
   - name: Add initiators to an igroup
     na_ontap_igroup_initiator:
-    names: abc.test:def.com,def.test:efg.com
-    initiator_group: test_group
-    vserver: st024vs
-    hostname: "{{ hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
-    https: true
-    validate_certs: false
+      names: abc.test:def.com,def.test:efg.com
+      initiator_group: test_group
+      vserver: st024vs
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
