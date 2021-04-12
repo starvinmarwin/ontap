@@ -6,16 +6,14 @@
     - netapp.ontap
   gather_facts: false
   name: Loop of LUN creation
-  tasks:
+  tasks:     
   - name: Add initiators to an igroup
-    na_ontap_igroup_initiator:
-      names: "{{ names.item }}"
-      initiator_group: "{{ group.item }}" 
-      vserver: "{{ item.vserver }}"
-      hostname: "{{ hostname }}"
-      username: "{{ netapp_username }}"
-      password: "{{ netapp_password }}"
+  na_ontap_igroup_initiator:
+    names: abc.test:def.com,def.test:efg.com
+    initiator_group: test_group
+    vserver: st024vs
+    hostname: "{{ hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
       https: true
       validate_certs: false
-    loop:
-      - { names: 'bla', initiator_group: 'test1', vserver: 'st024vs' }
