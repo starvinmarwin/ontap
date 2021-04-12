@@ -15,13 +15,14 @@
       size_unit: "{{ item.volume_size_unit }}"
       vserver: "{{ item.vserver }}"
       flexvol_name: "{{ item.flexvol_name }}"
+      igroup_name: "{{ item.igroup_name }}"
       hostname: "{{ hostname }}"
       username: "{{ netapp_username }}"
       password: "{{ netapp_password }}"
       https: true
       validate_certs: false
     loop:
-      - { lun_name: 'na777vmw001', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
+      - { lun_name: 'na777vmw001', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1', igroup_name: 'test1' }
       - { lun_name: 'na777vmw002', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
       - { lun_name: 'na777vmw003', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
       - { lun_name: 'na777vmw004', lun_size: '16', volume_size_unit: 'gb', vserver: 'st024vs', flexvol_name: 'st024vs_vol1' }
