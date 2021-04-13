@@ -21,4 +21,4 @@
       https: true
       validate_certs: false
     loop:
-      - { igroup_name: 'na777vmw001', group_type: 'fcp', ostype: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:00,20:FA:00:25:B5:0B:00:00' }
+      - { igroup_name: 'na777vmw001', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:00,20:FA:00:25:B5:0B:00:00' }
