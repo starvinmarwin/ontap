@@ -14,6 +14,9 @@
       size: "{{ item.volume_size }}"
       size_unit: "{{ item.volume_size_unit }}"
       vserver: "{{ item.vserver }}"
+      comment: "{{ item.comment }}"
+      export_policy: "{{ item.export_policy }}"
+      snapshot_policy: "{{ item.snapshot_policy }}"
       aggregate_name: "{{ item.aggregate_name }}"
       hostname: "{{ hostname }}"
       username: "{{ netapp_username }}"
@@ -21,7 +24,7 @@
       https: true
       validate_certs: false
     loop:
-      - { volume: 'volume1', volume_size: '10', volume_size_unit: 'mb', vserver: 'vserver_name', aggregate_name: 'aggr1' }
+      - { volume: 'LOR_LIBRARY_NFS_SSD', volume_size: '10', volume_size_unit: 'mb', vserver: 'vserver_name', comment: '10.87.172.1', export_policy: 'default', snapshot_policy: 'Telia7d', aggregate_name: 'aggr1' }
       - { volume: 'volume2', volume_size: '20', volume_size_unit: 'mb', vserver: 'vserver_name', aggregate_name: 'aggr2' }
       - { volume: 'volume3', volume_size: '30', volume_size_unit: 'mb', vserver: 'vserver_name', aggregate_name: 'aggr1' }
       - { volume: 'volume4', volume_size: '40', volume_size_unit: 'mb', vserver: 'vserver_name', aggregate_name: 'aggr2' }
