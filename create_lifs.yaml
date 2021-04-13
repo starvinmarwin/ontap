@@ -1,1 +1,35 @@
-fdfdf
+---
+- hosts: localhost
+  environment:
+   no_proxy: 10.87.170.10
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  name: Loop of LIF creation
+  tasks:
+  - name: Create LIFs
+    na_ontap_interface:
+      state: present
+      interface_name: "{{ item.interface_name }}"
+      home_port: "{{ item.home_port }}"
+      home_node: "{{ item.home_node }}"
+      role: "{{ item.role }}"
+      protocols: "{{ item.protocols }}"
+      admin_status: "{{ item.admin_status }}"
+      failover_policy: "{{ item.failover_policy }}"
+      firewall_policy: "{{ item.firewall_policy }}"
+      is_auto_revert: "{{ item.is_auto_revert }}"
+      address: "{{ item.address }}"
+      netmask: "{{ item.netmask }}"
+      force_subnet_association: "{{ item.force_subnet_association }}"
+      dns_domain_name: "{{ item.dns_domain_name }}"
+      listen_for_dns_query: "{{ item.listen_for_dns_query }}"
+      is_dns_update_enabled: "{{ item.is_dns_update_enabled }}"
+      vserver: "{{ item.vserver }}"
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
+    loop:
+      - { interface_name: 'lif1', home_port: 'a0a', home_node: 'xxzx', role: 'data', protocols: 'nfs', admin_status: 'up', failover_policy: 'local-only', firewall_policy: 'mgmt', is_auto_revert: 'true', address: '10.0.0.1', netmask: '255.255.255.0',   }
