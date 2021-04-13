@@ -37,6 +37,7 @@
       - { igroup_name: 'na777vmw014', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0D,20:FA:00:25:B5:0B:00:0D' }
       - { igroup_name: 'na777vmw015', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0E,20:FA:00:25:B5:0B:00:0E' }
       - { igroup_name: 'na777vmw016', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0F,20:FA:00:25:B5:0B:00:0F' }
+      - { igroup_name: 'dummy', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0F,20:FA:00:25:B5:0B:00:0F' }
       
   - name: Create LUN mapping
     na_ontap_lun_map:
