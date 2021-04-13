@@ -37,3 +37,32 @@
       - { igroup_name: 'na777vmw014', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0D,20:FA:00:25:B5:0B:00:0D' }
       - { igroup_name: 'na777vmw015', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0E,20:FA:00:25:B5:0B:00:0E' }
       - { igroup_name: 'na777vmw016', group_type: 'fcp', os_type: 'linux', vserver: 'st024vs', initiators: '20:FA:00:25:B5:0A:00:0F,20:FA:00:25:B5:0B:00:0F' }
+      
+  - name: Create LUN mapping
+    na_ontap_lun_map:
+      state: present
+      initiator_group_name: "{{ item.initiator_group_name }}"
+      path: "{{ item.path }}"
+      vserver: "{{ item.vserver }}"
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
+    loop:
+      - { initiator_group_name: 'na777vmw001', path: '/vol/st024vs_vol1/na777vmw001' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw002', path: '/vol/st024vs_vol1/na777vmw002' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw003', path: '/vol/st024vs_vol1/na777vmw003' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw004', path: '/vol/st024vs_vol1/na777vmw004' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw005', path: '/vol/st024vs_vol1/na777vmw005' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw006', path: '/vol/st024vs_vol1/na777vmw006' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw007', path: '/vol/st024vs_vol1/na777vmw007' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw008', path: '/vol/st024vs_vol1/na777vmw008' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw009', path: '/vol/st024vs_vol1/na777vmw009' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw010', path: '/vol/st024vs_vol1/na777vmw010' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw011', path: '/vol/st024vs_vol1/na777vmw011' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw012', path: '/vol/st024vs_vol1/na777vmw012' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw013', path: '/vol/st024vs_vol1/na777vmw013' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw014', path: '/vol/st024vs_vol1/na777vmw014' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw015', path: '/vol/st024vs_vol1/na777vmw015' vserver: 'st024vs' }
+      - { initiator_group_name: 'na777vmw016', path: '/vol/st024vs_vol1/na777vmw016' vserver: 'st024vs' }
