@@ -21,10 +21,6 @@
       is_auto_revert: "{{ item.is_auto_revert }}"
       address: "{{ item.address }}"
       netmask: "{{ item.netmask }}"
-      force_subnet_association: "{{ item.force_subnet_association }}"
-      dns_domain_name: "{{ item.dns_domain_name }}"
-      listen_for_dns_query: "{{ item.listen_for_dns_query }}"
-      is_dns_update_enabled: "{{ item.is_dns_update_enabled }}"
       vserver: "{{ item.vserver }}"
       hostname: "{{ hostname }}"
       username: "{{ netapp_username }}"
@@ -32,4 +28,4 @@
       https: true
       validate_certs: false
     loop:
-      - { interface_name: 'lif1', home_port: 'a0a', home_node: 'xxzx', role: 'data', protocols: 'nfs', admin_status: 'up', failover_policy: 'local-only', firewall_policy: 'mgmt', is_auto_revert: 'true', address: '10.0.0.1', netmask: '255.255.255.0',   }
+      - { interface_name: 'lif1', home_port: 'a0a', home_node: 'xxzx', role: 'data', protocols: 'nfs', admin_status: 'up', failover_policy: 'local-only', firewall_policy: 'mgmt', is_auto_revert: 'true', address: '10.0.0.1', netmask: '255.255.255.0', vserver: 'test1' }
