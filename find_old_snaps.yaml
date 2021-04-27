@@ -1,0 +1,26 @@
+- name: "Gather current epoch time"
+  set_fact:
+    epoch_current_time: "{{ lookup('pipe', 'date +\"%s\"') }}"
+- name: "Set fact that will be the threshold for deleting snapshots"
+  set_fact:
+    remove_snapshots_after_epoch_time: "{{ (epoch_current_time | int) - (ontap_snapshot_prod_retention_days * 24 * 60 * 60) }}"
+- name: "{{ this_svm }} : {{ this_volume }} : Gather Snapshot Information for snapshots that are expired"
+  netapp.ontap.na_ontap_info:
+    hostname: "{{ this_netapp_hostname }}"
+    username: "{{ this_netapp_username }}"
+    password: "{{ this_netapp_password }}"
+    vserver: "{{ this_svm }}"
+    https: "{{ this_netapp_https }}"
+    validate_certs: "{{ this_netapp_validate_certs }}"
+    gather_subset:
+      - snapshot_info
+    query:
+      snapshot-info:
+        volume: "{{ this_volume }}"
+        snapmirror-label: "{{ ontap_snapshot_snapmirror_label }}"
+        access-time: "<{{ remove_snapshots_after_epoch_time }}" # Return all snapshots that have an access time older than the threshold (epoch number is less)
+    desired_attributes:
+      snapshot-info:
+        snapmirror-label:
+        access-time:
+  register: snapshot_info
