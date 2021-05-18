@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  environment:
+    no_proxy: "{{ hostname }}"
+  collections:
+    - netapp.ontap
+  gather_facts: false
+  vars:
+    login: &login
+      hostname: "{{ hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
+  name: Create Snappmirror relationships
+  tasks:
+  - name: Create Snapmirror relationship martintest
+    na_ontap_snapmirror:
+      state: present
+      source_endpoint:
+        cluster: "{{ item.source_cluster }}"
+        path: "{{ item.source_vserver }}"
+      destination_endpoint:
+        cluster: "{{ item.destination_cluster }}"
+        path: "{{ item.destination_vserver }}"
+      create_destination:
+        enabled: true
+      loop:
+         - { source_cluster: 'bla', source_vserver: 'bla', destination_cluster: 'noalfna15st', destination_vserver: 'st025vsb', volname2: 'martintest' }
+      <<: *login
