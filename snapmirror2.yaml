@@ -1,0 +1,28 @@
+- name: Mirror Mass Creation on NetApp
+  hosts: localhost
+  collections:
+    - netapp.ontap
+  vars:
+    netapp_username: "{{ lookup('env', 'netapp_username') }}"
+    netapp_password: "{{ lookup('env', 'netapp_password') }}"
+    # Destination Netapp System
+    #vserver: tridentsvm
+    #aggregate_name: mapi_ntapsvm_01_VM_DISK_1
+    MirList: "{{ lookup('file', 'mirrors.json') }}"
+  tasks:
+  - name: Create ONTAP/ONTAP SnapMirror Relationships
+    netapp.ontap.na_ontap_snapmirror:
+      state: present
+      source_volume: "{{ item.volname }}"
+      destination_volume: "{{ item.volname }}"
+      source_vserver: "{{ item.srcvserver }}"
+      destination_vserver: "{{ item.destvserver}}"
+      schedule: "{{item.schedule}}"
+      policy: "{{item.policy}}"
+      #relationship_type: "{{item.relationship_type}}"      
+      hostname: "{{ item.netapp_hostname }}"
+      username: "{{ netapp_username }}"
+      password: "{{ netapp_password }}"
+      https: true
+      validate_certs: false
+    loop: "{{ MirList }}"
