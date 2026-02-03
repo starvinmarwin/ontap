@@ -1,0 +1,48 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local  
+  collections:
+    - netapp.ontap
+    
+  name: Create new interface on new vlan
+  module_defaults:    
+    group/netapp.ontap.netapp_ontap:      
+      hostname: "{{ netapp_hostname }}"      
+      username: "{{ netapp_username }}"      
+      password: "{{ netapp_password }}"     
+      validate_certs: true
+  vars_files:
+    - secret.yml
+
+  tasks:
+  - name: Create broadcast domain
+    netapp.ontap.na_ontap_broadcast_domain:
+      state: present
+      name: bd_coffes_special
+      mtu: 1500
+      ipspace: Default
+      ports: ["node01:e0f", "node02:e0f"]
+      
+  - name: Create and add vlan to broadcast domain
+    netapp.ontap.na_ontap_net_vlan:
+      state: present
+      vlanid: 14
+      node: "{{ vlan_node }}"
+      parent_interface: "{{ vlan_parent_interface_name }}"
+      broadcast_domain: bd_coffes_special
+      ipspace: Default
+      enabled: true
+
+  - name: Create interface
+    netapp.ontap.na_ontap_interface:
+      state: present
+      interface_name: coffes_lif
+      broadcast_domain: bd_coffes_special
+      home_node: node01
+      admin_status: up
+      failover_policy: system-defined
+      service_policy: default-data-files
+      address: 10.10.10.10
+      netmask: 255.255.255.0
+      vserver: svm1
